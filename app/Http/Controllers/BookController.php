@@ -37,7 +37,7 @@ class BookController extends Controller
 
         Book::create($validated);
 
-        return redirect()->route('books.index');
+        return redirect()->route('books.index')->with('success', 'Log added');
     }
 
     /**
@@ -69,7 +69,7 @@ class BookController extends Controller
 
         $book->update($validated);
         
-        return redirect()->route('books.index');
+        return redirect()->route('books.index')->with('success', 'Log updated');
     }
 
     /**
@@ -79,6 +79,6 @@ class BookController extends Controller
     {
         $book->delete();
 
-        return redirect()->route('books.index');
+        return redirect()->route('books.index')->with('success', 'Log deleted');
     }
 }

@@ -27,6 +27,16 @@
         </div>
     </header>
 
+    @if (session('success'))
+        <div class="container pt-3">
+            <div class="alert alert-success d-flex justify-content-between align-items-center">
+                <span>{{ session('success') }}</span>
+                <button type="button" class="btn-close" aria-label="Close"
+                    onclick="this.parentElement.remove()"></button>
+            </div>
+        </div>
+    @endif
+
     <main class="mt-5">
         <div class="container">
             @yield('content')
