@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="mb-3">
-        <a href="{{ route('books.index') }}" class="fs-6 text-secondary link link-underline-opacity-0">&larr; Back</a>
+        <a href="{{ route('logs.index') }}" class="fs-6 text-secondary link link-underline-opacity-0">&larr; Back</a>
         <h2 class="mt-2 fw-bold">Add Log</h2>
     </div>
 
-    <form action="{{ route('books.store') }}" method="POST">
+    <form action="{{ route('logs.store') }}" method="POST">
         @csrf
 
         <div class="mb-3">
@@ -37,7 +37,7 @@
 
         <div class="d-flex gap-3">
             <button type="submit" class="btn btn-primary">&plus; Add Log</button>
-            <a href="{{ route('books.index') }}" class="btn btn-outline-secondary">Cancel</a>
+            <a href="{{ route('logs.index') }}" class="btn btn-outline-secondary">Cancel</a>
         </div>
     </form>
 @endsection

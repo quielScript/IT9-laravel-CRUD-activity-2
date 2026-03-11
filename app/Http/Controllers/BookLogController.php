@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
+use App\Models\BookLog;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class BookLogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $books = Book::all();
-        return view('books.index', compact('books'));
+    {   
+        $logs = BookLog::all();
+        return view('logs.index', compact('logs'));
     }
 
     /**
@@ -21,7 +21,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        return view('logs.create');
     }
 
     /**
@@ -35,9 +35,9 @@ class BookController extends Controller
             'return_status' => 'required|in:borrowed,returned',
         ]);
 
-        Book::create($validated);
+        BookLog::create($validated);
 
-        return redirect()->route('books.index')->with('success', 'Log added');
+        return redirect()->route('logs.index')->with('success', 'Log added');
     }
 
     /**
@@ -51,15 +51,15 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
+    public function edit(BookLog $log)
     {
-        return view('books.edit', compact('book'));
+        return view('logs.edit', compact('log'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, BookLog $log)
     {
         $validated = $request->validate([
             'book_title' => 'required|string',
@@ -67,18 +67,18 @@ class BookController extends Controller
             'return_status' => 'required|in:borrowed,returned',
         ]);
 
-        $book->update($validated);
+        $log->update($validated);
         
-        return redirect()->route('books.index')->with('success', 'Log updated');
+        return redirect()->route('logs.index')->with('success', 'Log updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+    public function destroy(BookLog $log)
     {
-        $book->delete();
+        $log->delete();
 
-        return redirect()->route('books.index')->with('success', 'Log deleted');
+        return redirect()->route('logs.index')->with('success', 'Log deleted');
     }
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Book Borrow Log') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -22,7 +22,7 @@
 <body>
     <header>
         <div class="bg bg-primary py-3 text-center">
-            <a href="{{ route('books.index') }}"
+            <a href="{{ route('logs.index') }}"
                 class="text-white link-underline link-underline-opacity-0 fs-5 fw-bold">Book Borrow Log</a>
         </div>
     </header>
