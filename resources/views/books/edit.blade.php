@@ -18,12 +18,20 @@
             <label for="book_title" class="form-label">Book Title</label>
             <input type="text" name="book_title" id="book_title" class="form-control"
                 value="{{ old('book_title', $book->book_title ?? '') }}">
+            @error('book_title')
+                <p class="fs-6 text-danger">{{ $message }}</p>
+            @enderror
+
         </div>
 
         <div class="mb-3">
             <label for="borrower_name" class="form-label">Borrower Name</label>
             <input type="text" name="borrower_name" id="borrower_name" class="form-control"
                 value="{{ old('borrower_name', $book->borrower_name ?? '') }}">
+            @error('borrower_name')
+                <p class="fs-6 text-danger">{{ $message }}</p>
+            @enderror
+
         </div>
 
         <div class="mb-3">
@@ -38,7 +46,7 @@
         </div>
 
         <div class="d-flex gap-3">
-            <button type="submit" class="btn btn-primary">&plus; Add Log</button>
+            <button type="submit" class="btn btn-primary">&plus; Update Log</button>
             <a href="{{ route('books.index') }}" class="btn btn-outline-secondary">Cancel</a>
         </div>
     </form>
